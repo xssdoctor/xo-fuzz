@@ -1,0 +1,294 @@
+{
+  "kind": "lifecycle",
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Safari/605.1.15",
+  "from": "http://127.0.0.1:8000",
+  "target": "http://127.0.0.1:8001",
+  "date": "2026-10-31T07:48:32.667Z",
+  "seed": 1,
+  "cases": 644,
+  "matrix": 630,
+  "mutants": 14,
+  "timeouts": 0,
+  "seconds": 179,
+  "skipped": [
+    "moveBefore (Element.prototype.moveBefore not supported)"
+  ],
+  "signatures": 39,
+  "findings": [],
+  "coverage": [
+    {
+      "probe": "teardown:body-clear",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 90,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.closed",
+      "outcomes": 1,
+      "signature": "ok:boolean",
+      "count": 644,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.length",
+      "outcomes": 1,
+      "signature": "ok:number",
+      "count": 644,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.frames[0]",
+      "outcomes": 3,
+      "signature": "ok:undefined",
+      "count": 134,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.frames[0]",
+      "outcomes": 3,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 313,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "w.frames[0]",
+      "outcomes": 3,
+      "signature": "ok:object",
+      "count": 197,
+      "firstSeen": "blank/navigate-blank/timeout0/7"
+    },
+    {
+      "probe": "w.gOPD(location).get",
+      "outcomes": 1,
+      "signature": "ok:function",
+      "count": 644,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.constructor",
+      "outcomes": 2,
+      "signature": "ok:function",
+      "count": 134,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.constructor",
+      "outcomes": 2,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 510,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "w.document",
+      "outcomes": 2,
+      "signature": "ok:object",
+      "count": 134,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.document",
+      "outcomes": 2,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 510,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "w.name",
+      "outcomes": 2,
+      "signature": "ok:string",
+      "count": 134,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.name",
+      "outcomes": 2,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 510,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "w.location.href",
+      "outcomes": 2,
+      "signature": "ok:string",
+      "count": 134,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.location.href",
+      "outcomes": 2,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 510,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "w.String()",
+      "outcomes": 2,
+      "signature": "ok:string",
+      "count": 134,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "w.String()",
+      "outcomes": 2,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 510,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "oldF.('return location.href')()",
+      "outcomes": 1,
+      "signature": "ok:string",
+      "count": 214,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "oldF.('return document.body.innerHTML')()",
+      "outcomes": 1,
+      "signature": "ok:string",
+      "count": 214,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "oldDoc.URL",
+      "outcomes": 1,
+      "signature": "ok:string",
+      "count": 214,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "oldDoc.body.innerHTML",
+      "outcomes": 1,
+      "signature": "ok:string",
+      "count": 214,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "oldLoc.href",
+      "outcomes": 1,
+      "signature": "ok:string",
+      "count": 214,
+      "firstSeen": "blank/body-clear/microtask/0"
+    },
+    {
+      "probe": "teardown:reinsert",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "loc.replace",
+      "outcomes": 1,
+      "signature": "ok:function",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "loc.gOPD(href).set",
+      "outcomes": 1,
+      "signature": "ok:function",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "loc.constructor",
+      "outcomes": 1,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "loc.href",
+      "outcomes": 1,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "loc.origin",
+      "outcomes": 1,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "loc.String()",
+      "outcomes": 1,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "kid.location",
+      "outcomes": 1,
+      "signature": "ok:object",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "kid.constructor",
+      "outcomes": 1,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "kid.document",
+      "outcomes": 1,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "kidLoc.constructor",
+      "outcomes": 1,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "kidLoc.href",
+      "outcomes": 1,
+      "signature": "SecurityError:Blocked a frame with origin \"<s>\" from accessing a cross-origin frame. Protocols, domains, and ports must match.",
+      "count": 430,
+      "firstSeen": "load/reinsert/timeout0/1"
+    },
+    {
+      "probe": "teardown:remove",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "settled/remove/timeout0/150"
+    },
+    {
+      "probe": "teardown:navigate-blank",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 94,
+      "firstSeen": "blank/navigate-blank/timeout0/5"
+    },
+    {
+      "probe": "teardown:navigate-srcdoc",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "settled/navigate-srcdoc/sync/1"
+    },
+    {
+      "probe": "teardown:adoptNode",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "load/adoptNode/microtask/1"
+    },
+    {
+      "probe": "teardown:none",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "load/none/late/0"
+    }
+  ],
+  "label": "safari"
+}

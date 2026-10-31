@@ -1,0 +1,77 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>xo-lifecycle</title>
+<!-- UI around xo-lifecycle.js. The engine itself is standalone: paste xo-lifecycle.js into any console. -->
+<style>
+  body { font: 13px/1.4 ui-monospace, Menlo, monospace; margin: 16px; background: #fff; color: #111; }
+  input[type=text] { width: 380px; }
+  input[type=number] { width: 80px; }
+  table { border-collapse: collapse; margin: 8px 0 16px; width: 100%; }
+  td, th { border: 1px solid #ccc; padding: 2px 6px; text-align: left; vertical-align: top; }
+  tr.LEAK { background: #ffb3b3; } tr.FOREIGN { background: #ffd9a8; } tr.ANOMALY { background: #fff3a8; }
+</style>
+<p>
+  target <input type=text id=target>
+  iterations <input type=number id=iterations value=300>
+  seed <input type=number id=seed value=1>
+  <button id=run>run</button>
+  <button id=export>export JSON</button>
+</p>
+<p>
+  replay <input type=text id=recipe placeholder="load/remove/sync/0">
+  <button id=replay>replay ×5</button>
+</p>
+<pre id=summary>idle</pre>
+<h3>Findings</h3>
+<table><thead><tr><th>sev<th>recipe<th>probe<th>detail<th>teardown</thead><tbody id=findings></tbody></table>
+<h3>Probes with more than one outcome</h3>
+<table><thead><tr><th>probe<th>signature<th>count<th>first seen</thead><tbody id=coverage></tbody></table>
+<pre id=json hidden></pre>
+<script src="/xo-lifecycle.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+$('target').value = params.get('target') || `${location.protocol}//${location.hostname}:${Number(location.port) + 1}/target.html`;
+if (params.has('iterations')) $('iterations').value = params.get('iterations');
+let report;
+
+function fill(tbody, rows, cols, cls) {
+  tbody.replaceChildren(...rows.map(r => {
+    const tr = document.createElement('tr');
+    if (cls) tr.className = r[cls];
+    for (const k of cols) {
+      const td = document.createElement('td');
+      td.textContent = r[k];
+      tr.append(td);
+    }
+    return tr;
+  }));
+}
+
+async function run() {
+  $('summary').textContent = 'running...';
+  report = await xoLife({
+    target: $('target').value, iterations: Number($('iterations').value), seed: Number($('seed').value), quiet: true,
+    onProgress: p => { $('summary').textContent = `running... ${p.ran}/${p.total} cases, ${p.findings} findings`; },
+  });
+  const counts = ['LEAK', 'FOREIGN', 'ANOMALY'].map(s => `${s}: ${report.findings.filter(f => f.sev === s).length}`).join('   ');
+  $('summary').textContent = `${report.ua}\ntarget ${report.target}\n${report.cases} cases (${report.mutants} mutants, ${report.timeouts} timeouts) in ${report.seconds}s, ${report.signatures} signatures\n${counts}` +
+    (report.skipped.length ? `\nskipped: ${report.skipped.join(', ')}` : '');
+  fill($('findings'), report.findings, ['sev', 'recipe', 'probe', 'detail', 'teardown'], 'sev');
+  fill($('coverage'), report.coverage.filter(r => r.outcomes > 1), ['probe', 'signature', 'count', 'firstSeen']);
+  $('json').textContent = JSON.stringify(report);
+  // ?label= names the browser in saved reports (many browsers share a Chrome/Firefox UA).
+  if (params.has('autorun')) fetch('/report', { method: 'POST', body: JSON.stringify({ ...report, label: params.get('label') }) }).catch(() => {});
+}
+
+$('run').onclick = run;
+$('export').onclick = () => report && xoLife.download(report);
+$('replay').onclick = async () => {
+  const runs = await xoLife.replay($('recipe').value, { target: $('target').value, quiet: true });
+  $('summary').textContent = runs.map((r, i) =>
+    `#${i + 1} ${r.id} teardown=${r.teardownResult}${r.timedOut ? ' TIMED OUT' : ''}\n` +
+    r.results.map(x => `  ${x.probe.padEnd(40)} ${x.sig}`).join('\n') +
+    (r.findings.length ? '\n  FINDINGS: ' + r.findings.map(f => `${f.sev} ${f.probe}`).join(', ') : '')).join('\n\n');
+};
+if (params.has('autorun')) run();
+</script>

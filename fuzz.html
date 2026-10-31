@@ -1,0 +1,64 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>xo-fuzz</title>
+<!-- UI around xo-fuzz.js. The engine itself is standalone: paste xo-fuzz.js into any console. -->
+<style>
+  body { font: 13px/1.4 ui-monospace, Menlo, monospace; margin: 16px; background: #fff; color: #111; }
+  input[type=text] { width: 380px; }
+  table { border-collapse: collapse; margin-top: 8px; width: 100%; }
+  td, th { border: 1px solid #ccc; padding: 2px 6px; text-align: left; vertical-align: top; }
+  tr.LEAK { background: #ffb3b3; } tr.FOREIGN { background: #ffd9a8; }
+  tr.SPEC { background: #fff3a8; } tr.info { background: #e6f0ff; }
+</style>
+<p>
+  target <input type=text id=target>
+  <button id=run>run</button>
+  <button id=runPopup>run + popup</button>
+  <label><input type=checkbox id=showAll> show all rows</label>
+  <button id=export>export JSON</button>
+</p>
+<pre id=summary>idle</pre>
+<table><thead><tr><th>sev<th>stage<th>target<th>op<th>key<th>outcome<th>detail</thead><tbody id=out></tbody></table>
+<pre id=json hidden></pre>
+<script src="/xo-fuzz.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+$('target').value = params.get('target') || `${location.protocol}//${location.hostname}:${Number(location.port) + 1}/target.html`;
+let report;
+
+function render() {
+  if (!report) return;
+  $('summary').textContent = `${report.ua}\ntarget ${report.target}\n` +
+    xoFuzz.SEVERITIES.map(s => `${s}: ${report.counts[s]}`).join('   ');
+  document.title = `xo-fuzz ${xoFuzz.SEVERITIES.map(s => `${s}=${report.counts[s]}`).join(' ')}`;
+  const shown = $('showAll').checked ? report.rows : report.rows.filter(r => r.sev !== 'ok');
+  $('out').replaceChildren(...shown.map(r => {
+    const tr = document.createElement('tr');
+    tr.className = r.sev;
+    for (const k of ['sev', 'stage', 'target', 'op', 'key', 'outcome', 'detail']) {
+      const td = document.createElement('td');
+      td.textContent = r[k];
+      tr.append(td);
+    }
+    return tr;
+  }));
+}
+
+async function run(popupWindow) {
+  $('summary').textContent = 'running...';
+  report = await xoFuzz({ target: $('target').value, popupWindow, quiet: true });
+  render();
+  // ?label= names the browser in saved reports (many browsers share a Chrome/Firefox UA).
+  const slim = JSON.stringify({ ...report, label: params.get('label'), rows: report.rows.filter(r => r.sev !== 'ok') });
+  $('json').textContent = slim;
+  if (params.has('autorun')) fetch('/report', { method: 'POST', body: slim }).catch(() => {});
+}
+
+$('run').onclick = () => run();
+// window.open must happen synchronously inside the click, or the popup blocker eats it.
+$('runPopup').onclick = () => run(window.open($('target').value, 'xofuzz', 'width=400,height=300'));
+$('showAll').onchange = render;
+$('export').onclick = () => report && xoFuzz.download(report);
+if (params.has('autorun')) run();
+</script>

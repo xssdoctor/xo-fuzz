@@ -1,0 +1,44 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>yx</title>
+<pre id=out>running</pre>
+<script>
+// Probes Yandex's extra cross-origin window property (setWindowPriority) from :8002 against the :8001 target.
+const out = [];
+const log = (k, v) => out.push([k, v]);
+const t = (k, fn) => { try { const v = fn(); log(k, typeof v === 'function' ? 'function ' + v.name : String(v)); return v; } catch (e) { log(k, 'THREW ' + e.name + ': ' + e.message.slice(0, 120)); } };
+const myOrigin = self.origin;
+function probe(tag, w) {
+  t(tag + ' ownKeys', () => Reflect.ownKeys(w).map(String).join(','));
+  t(tag + ' in', () => 'setWindowPriority' in w);
+  const d = t(tag + ' gOPD', () => JSON.stringify(Object.getOwnPropertyDescriptor(w, 'setWindowPriority'), (k, v) => typeof v === 'function' ? 'fn:' + v.name + '/' + v.length : v));
+  const f = t(tag + ' get', () => w.setWindowPriority);
+  if (typeof f !== 'function') return;
+  t(tag + ' fn.toString', () => Function.prototype.toString.call(f).slice(0, 80));
+  t(tag + ' fn.length', () => f.length);
+  t(tag + ' fn realm is mine', () => f.constructor === Function);
+  t(tag + ' fn realm origin', () => f.constructor('return self.origin')());
+  t(tag + ' proto realm origin', () => Object.getPrototypeOf(f).constructor('return self.origin')());
+  t(tag + ' same object twice', () => w.setWindowPriority === f);
+  t(tag + ' set', () => { w.setWindowPriority = 1; return 'no throw'; });
+  t(tag + ' call()', () => f.call(w));
+  t(tag + ' call(1)', () => f.call(w, 1));
+  t(tag + ' call on self', () => f.call(window, 1));
+  t(tag + ' secret after', () => w.secret);
+}
+const ifr = document.createElement('iframe');
+ifr.src = `http://127.0.0.1:8001/target.html`;
+ifr.onload = () => setTimeout(() => {
+  log('myOrigin', myOrigin);
+  log('ua', navigator.userAgent);
+  for (const v of ['high','low','normal','default','background','foreground','active','inactive','visible','hidden','auto','user-blocking','user-visible','best-effort','critical','idle']) t('enum ' + v, () => { return String(ifr.contentWindow.setWindowPriority(v)); });
+  probe('own', window);
+  probe('xo', ifr.contentWindow);
+  probe('xo.kid', ifr.contentWindow.frames[0]);
+  const w = ifr.contentWindow; ifr.remove();
+  probe('detached', w);
+  document.getElementById('out').textContent = out.map(r => r.join(' => ')).join('\n');
+  fetch('http://127.0.0.1:8000/report', { method: 'POST', body: JSON.stringify({ kind: 'yx', label: new URLSearchParams(location.search).get('label'), ua: navigator.userAgent, out }) }).catch(() => {});
+}, 500);
+document.body.append(ifr);
+</script>

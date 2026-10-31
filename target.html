@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>xo-fuzz target</title>
+<body>
+<p>XO-FUZZ-SECRET: if the fuzzer can read this text, something leaked.</p>
+<script>
+  window.secret = 'XO-FUZZ-SECRET';
+  // One nested child frame (named "kid") so indexed + named frame access gets exercised.
+  if (!location.search.includes('child')) {
+    const f = document.createElement('iframe');
+    f.name = 'kid';
+    f.src = '/target.html?child=1';
+    document.body.append(f);
+  }
+</script>

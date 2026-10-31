@@ -1,0 +1,50 @@
+23:57:20 start: 24 browsers, lifecycle iterations=1000
+23:57:25 OK   chrome props 5s
+00:00:59 OK   chrome lifecycle 211s
+00:01:07 OK   chrome-canary props 5s
+00:04:43 OK   chrome-canary lifecycle 211s
+00:04:58 OK   chromium-ungoogled props 10s
+00:08:34 OK   chromium-ungoogled lifecycle 211s
+00:08:44 OK   edge props 5s
+00:12:20 OK   edge lifecycle 211s
+00:12:30 OK   opera props 5s
+00:16:06 OK   opera lifecycle 211s
+00:16:16 OK   opera-gx props 5s
+00:19:52 OK   opera-gx lifecycle 210s
+00:20:02 OK   brave props 5s
+00:23:43 OK   brave lifecycle 215s
+00:27:49 FAIL vivaldi props: no report after 240s
+00:31:30 OK   vivaldi lifecycle 216s
+00:35:36 FAIL comet props: no report after 240s
+01:05:42 FAIL comet lifecycle: no report after 1800s
+01:05:52 OK   yandex props 5s
+01:09:28 OK   yandex lifecycle 211s
+01:13:34 FAIL thorium props: no report after 240s
+01:43:40 FAIL thorium lifecycle: no report after 1800s
+01:43:55 OK   arc props 10s
+01:47:34 OK   arc lifecycle 216s
+01:51:38 FAIL atlas props: no report after 240s
+02:21:42 FAIL atlas lifecycle: no report after 1800s
+02:21:50 OK   firefox props 5s
+02:25:29 OK   firefox lifecycle 216s
+02:25:37 OK   firefox-nightly props 5s
+02:29:13 OK   firefox-nightly lifecycle 211s
+02:29:23 OK   zen props 5s
+02:33:04 OK   zen lifecycle 215s
+02:33:15 OK   librewolf props 6s
+02:37:00 OK   librewolf lifecycle 220s
+02:37:11 OK   floorp props 5s
+02:40:47 OK   floorp lifecycle 211s
+02:40:57 OK   waterfox props 5s
+03:11:03 FAIL waterfox lifecycle: no report after 1800s
+03:15:09 FAIL tor props: no report after 240s
+03:45:15 FAIL tor lifecycle: no report after 1800s
+03:45:25 OK   safari props 5s
+03:48:34 OK   safari lifecycle 181s
+03:48:47 OK   orion props 5s
+03:58:47 OK   orion lifecycle 597s
+04:02:51 FAIL sigmaos props: no report after 240s
+04:32:55 FAIL sigmaos lifecycle: no report after 1800s
+04:36:59 FAIL duckduckgo props: no report after 240s
+05:07:04 FAIL duckduckgo lifecycle: no report after 1800s
+05:07:07 DONE

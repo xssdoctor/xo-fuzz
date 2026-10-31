@@ -1,0 +1,43 @@
+{
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Safari/605.1.15",
+  "from": "http://127.0.0.1:8000",
+  "target": "http://127.0.0.1:8001",
+  "date": "2026-10-31T07:45:22.515Z",
+  "counts": {
+    "LEAK": 0,
+    "FOREIGN": 0,
+    "SPEC": 0,
+    "info": 3,
+    "ok": 20366
+  },
+  "rows": [
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.location",
+      "op": "in",
+      "key": "href",
+      "outcome": "threw on allowlisted op",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame. Protocols, "
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.frames[0].location",
+      "op": "in",
+      "key": "href",
+      "outcome": "threw on allowlisted op",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame. Protocols, "
+    },
+    {
+      "sev": "info",
+      "stage": "detached",
+      "target": "removed iframe location",
+      "op": "in",
+      "key": "href",
+      "outcome": "threw on allowlisted op",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame. Protocols, "
+    }
+  ],
+  "label": "safari"
+}

@@ -1,0 +1,15 @@
+{
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:153.0) Gecko/20100101 Firefox/153.0",
+  "from": "http://127.0.0.1:8000",
+  "target": "http://127.0.0.1:8001",
+  "date": "2026-10-31T09:23:33.739Z",
+  "counts": {
+    "LEAK": 0,
+    "FOREIGN": 0,
+    "SPEC": 0,
+    "info": 0,
+    "ok": 19325
+  },
+  "rows": [],
+  "label": "waterfox"
+}

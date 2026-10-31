@@ -1,0 +1,411 @@
+{
+  "kind": "lifecycle",
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/159.0.0.0 Safari/537.36",
+  "from": "http://127.0.0.1:8000",
+  "target": "http://127.0.0.1:8001",
+  "date": "2026-10-31T04:04:40.398Z",
+  "seed": 1,
+  "cases": 740,
+  "matrix": 720,
+  "mutants": 20,
+  "timeouts": 0,
+  "seconds": 207,
+  "skipped": [],
+  "signatures": 56,
+  "findings": [],
+  "coverage": [
+    {
+      "probe": "teardown:reinsert",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 90,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.closed",
+      "outcomes": 1,
+      "signature": "ok:boolean",
+      "count": 740,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.length",
+      "outcomes": 1,
+      "signature": "ok:number",
+      "count": 740,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.frames[0]",
+      "outcomes": 4,
+      "signature": "TypeError:Cannot read properties of null (reading '<s>')",
+      "count": 321,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.frames[0]",
+      "outcomes": 4,
+      "signature": "ok:object",
+      "count": 293,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "w.frames[0]",
+      "outcomes": 4,
+      "signature": "ok:undefined",
+      "count": 125,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "w.frames[0]",
+      "outcomes": 4,
+      "signature": "SecurityError:Failed to read an indexed property [<n>] from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 1,
+      "firstSeen": "blank/navigate-blank/microtask/5"
+    },
+    {
+      "probe": "w.gOPD(location).get",
+      "outcomes": 1,
+      "signature": "ok:function",
+      "count": 740,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.constructor",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 321,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.constructor",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 294,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "w.constructor",
+      "outcomes": 3,
+      "signature": "ok:function",
+      "count": 125,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "w.document",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 321,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.document",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 294,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "w.document",
+      "outcomes": 3,
+      "signature": "ok:object",
+      "count": 125,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "w.name",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 321,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.name",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 294,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "w.name",
+      "outcomes": 3,
+      "signature": "ok:string",
+      "count": 125,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "w.location.href",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 321,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.location.href",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 294,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "w.location.href",
+      "outcomes": 3,
+      "signature": "ok:string",
+      "count": 125,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "w.String()",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 321,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "w.String()",
+      "outcomes": 3,
+      "signature": "SecurityError:Failed to read a named property from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 294,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "w.String()",
+      "outcomes": 3,
+      "signature": "ok:string",
+      "count": 125,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "loc.replace",
+      "outcomes": 1,
+      "signature": "ok:function",
+      "count": 492,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "loc.gOPD(href).set",
+      "outcomes": 1,
+      "signature": "ok:function",
+      "count": 492,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "loc.constructor",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 277,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "loc.constructor",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 215,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "loc.href",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 277,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "loc.href",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 215,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "loc.origin",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 277,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "loc.origin",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 215,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "loc.String()",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 277,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "loc.String()",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 215,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "kid.location",
+      "outcomes": 1,
+      "signature": "ok:object",
+      "count": 492,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "kid.constructor",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 277,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "kid.constructor",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 215,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "kid.document",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 277,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "kid.document",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 215,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "kidLoc.constructor",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 277,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "kidLoc.constructor",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 215,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "kidLoc.href",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': An attempt was made to break through the security policy of the user agent.",
+      "count": 277,
+      "firstSeen": "load/reinsert/timeout0/0"
+    },
+    {
+      "probe": "kidLoc.href",
+      "outcomes": 2,
+      "signature": "SecurityError:Failed to read a named property '<s>' from '<s>': Blocked a frame with origin \"<s>\" from accessing a cross-origin frame.",
+      "count": 215,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "teardown:body-clear",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "load/body-clear/timeout0/1"
+    },
+    {
+      "probe": "teardown:navigate-blank",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 94,
+      "firstSeen": "settled/navigate-blank/timeout0/150"
+    },
+    {
+      "probe": "teardown:remove",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 96,
+      "firstSeen": "settled/remove/sync/150"
+    },
+    {
+      "probe": "oldF.('return location.href')()",
+      "outcomes": 2,
+      "signature": "ok:string",
+      "count": 94,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "oldF.('return location.href')()",
+      "outcomes": 2,
+      "signature": "TypeError:no access",
+      "count": 154,
+      "firstSeen": "blank/remove/sync/3"
+    },
+    {
+      "probe": "oldF.('return document.body.innerHTML')()",
+      "outcomes": 2,
+      "signature": "ok:string",
+      "count": 94,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "oldF.('return document.body.innerHTML')()",
+      "outcomes": 2,
+      "signature": "TypeError:no access",
+      "count": 154,
+      "firstSeen": "blank/remove/sync/3"
+    },
+    {
+      "probe": "oldDoc.URL",
+      "outcomes": 1,
+      "signature": "ok:string",
+      "count": 248,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "oldDoc.body.innerHTML",
+      "outcomes": 1,
+      "signature": "ok:string",
+      "count": 248,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "oldLoc.href",
+      "outcomes": 1,
+      "signature": "ok:string",
+      "count": 248,
+      "firstSeen": "blank/remove/sync/1"
+    },
+    {
+      "probe": "teardown:navigate-srcdoc",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "settled/navigate-srcdoc/raf/150"
+    },
+    {
+      "probe": "teardown:none",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "settled/none/raf/20"
+    },
+    {
+      "probe": "teardown:moveBefore",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "blank/moveBefore/timeout0/50"
+    },
+    {
+      "probe": "teardown:adoptNode",
+      "outcomes": 1,
+      "signature": "ok",
+      "count": 92,
+      "firstSeen": "settled/adoptNode/late/20"
+    }
+  ],
+  "label": "chrome-canary"
+}

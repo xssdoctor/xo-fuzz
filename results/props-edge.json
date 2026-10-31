@@ -1,0 +1,178 @@
+{
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+  "from": "http://127.0.0.1:8000",
+  "target": "http://127.0.0.1:8001",
+  "date": "2026-10-31T04:08:42.199Z",
+  "counts": {
+    "LEAK": 0,
+    "FOREIGN": 0,
+    "SPEC": 0,
+    "info": 18,
+    "ok": 23861
+  },
+  "rows": [
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow",
+      "op": "setPrototypeOf",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow",
+      "op": "preventExtensions",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow",
+      "op": "in",
+      "key": "then",
+      "outcome": "threw on allowlisted op",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.location",
+      "op": "setPrototypeOf",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.location",
+      "op": "preventExtensions",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.location",
+      "op": "in",
+      "key": "then",
+      "outcome": "threw on allowlisted op",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.frames[0]",
+      "op": "setPrototypeOf",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.frames[0]",
+      "op": "preventExtensions",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.frames[0]",
+      "op": "in",
+      "key": "then",
+      "outcome": "threw on allowlisted op",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.frames[0].location",
+      "op": "setPrototypeOf",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.frames[0].location",
+      "op": "preventExtensions",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "iframe",
+      "target": "contentWindow.frames[0].location",
+      "op": "in",
+      "key": "then",
+      "outcome": "threw on allowlisted op",
+      "detail": "SecurityError: Blocked a frame with origin \"http://127.0.0.1:8000\" from accessing a cross-origin frame."
+    },
+    {
+      "sev": "info",
+      "stage": "detached",
+      "target": "removed iframe window",
+      "op": "setPrototypeOf",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: An attempt was made to break through the security policy of the user agent."
+    },
+    {
+      "sev": "info",
+      "stage": "detached",
+      "target": "removed iframe window",
+      "op": "preventExtensions",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: An attempt was made to break through the security policy of the user agent."
+    },
+    {
+      "sev": "info",
+      "stage": "detached",
+      "target": "removed iframe window",
+      "op": "in",
+      "key": "then",
+      "outcome": "threw on allowlisted op",
+      "detail": "SecurityError: An attempt was made to break through the security policy of the user agent."
+    },
+    {
+      "sev": "info",
+      "stage": "detached",
+      "target": "removed iframe location",
+      "op": "setPrototypeOf",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: An attempt was made to break through the security policy of the user agent."
+    },
+    {
+      "sev": "info",
+      "stage": "detached",
+      "target": "removed iframe location",
+      "op": "preventExtensions",
+      "key": "-",
+      "outcome": "threw",
+      "detail": "SecurityError: An attempt was made to break through the security policy of the user agent."
+    },
+    {
+      "sev": "info",
+      "stage": "detached",
+      "target": "removed iframe location",
+      "op": "in",
+      "key": "then",
+      "outcome": "threw on allowlisted op",
+      "detail": "SecurityError: An attempt was made to break through the security policy of the user agent."
+    }
+  ],
+  "label": "edge"
+}
